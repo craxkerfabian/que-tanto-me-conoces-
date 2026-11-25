@@ -3,61 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09070b">
-  <title>¿Cuánto me conoces? | Quiz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#111111">
+  <title>¿Cuánto me conoces?</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="grain"></div>
-  <main class="page-shell">
-    <header class="top-mark">
-      <span class="ornament">✦</span>
-      <span>THE DARK EDITION</span>
-      <span class="ornament">✦</span>
+  <main class="contenedor">
+    <header class="encabezado">
+      <span class="etiqueta">EL TEST DEFINITIVO</span>
+      <h1>¿CUÁNTO ME <span>CONOCES?</span></h1>
+      <p>Responde las preguntas y demuestra qué tanto sabes de mí.</p>
     </header>
 
-    <section class="quiz-card">
-      <div class="corner corner-tl">✧</div><div class="corner corner-tr">✧</div>
-      <div class="corner corner-bl">✧</div><div class="corner corner-br">✧</div>
-
-      <div id="start-screen" class="screen">
-        <p class="eyebrow">UN PEQUEÑO DESAFÍO</p>
-        <h1>¿Cuánto<br><em>me conoces?</em></h1>
-        <div class="divider"><span>☽</span></div>
-        <p class="intro">Siete preguntas. Una oportunidad para demostrar cuánto sabes de mí.</p>
-        <label class="name-label" for="player-name">ANTES DE COMENZAR, DIME TU NOMBRE</label>
-        <input id="player-name" type="text" maxlength="24" placeholder="Escribe tu nombre..." autocomplete="off">
-        <button id="start-btn" class="main-btn">COMENZAR EL QUIZ <span>↗</span></button>
-        <p class="small-note">Que la suerte esté de tu lado.</p>
-      </div>
-
-      <div id="quiz-screen" class="screen hidden">
-        <div class="quiz-meta">
-          <span id="question-counter">PREGUNTA 1 / 7</span>
-          <span id="score-counter">✦ 0 PUNTOS</span>
-        </div>
-        <div class="progress-track"><div id="progress-bar"></div></div>
-        <p class="eyebrow">PON A PRUEBA TU MEMORIA</p>
-        <h2 id="question-title">Pregunta</h2>
-        <div id="options-container" class="options"></div>
-        <p id="feedback" class="feedback" aria-live="polite"></p>
-        <button id="next-btn" class="main-btn hidden">SIGUIENTE <span>→</span></button>
-      </div>
-
-      <div id="result-screen" class="screen hidden">
-        <p class="eyebrow">EL VEREDICTO FINAL</p>
-        <h1 id="result-heading">Tu resultado</h1>
-        <div class="result-score"><strong id="final-score">0</strong><span>/ 7</span></div>
-        <p id="result-message" class="intro"></p>
-        <div class="divider"><span>☽</span></div>
-        <p id="result-player" class="result-player"></p>
-        <button id="restart-btn" class="main-btn">VOLVER A JUGAR <span>↻</span></button>
-      </div>
+    <section id="inicio" class="panel">
+      <div class="icono">✦</div>
+      <h2>¿Listo para jugar?</h2>
+      <p>Son 7 preguntas. Elige la respuesta que creas correcta y descubre tu resultado al final.</p>
+      <label for="nombre">Tu nombre</label>
+      <input id="nombre" type="text" maxlength="30" placeholder="Escribe tu nombre..." autocomplete="given-name">
+      <button id="comenzar" class="boton">COMENZAR TEST <span>→</span></button>
     </section>
-    <footer>✦ HECHO EN LA OSCURIDAD ✦</footer>
+
+    <section id="juego" class="panel oculto">
+      <div class="progreso-info">
+        <span id="contador">PREGUNTA 1 DE 7</span>
+        <span id="porcentaje">0%</span>
+      </div>
+      <div class="barra"><div id="progreso"></div></div>
+      <h2 id="texto-pregunta"></h2>
+      <div id="opciones" class="opciones"></div>
+      <p id="mensaje" class="mensaje" aria-live="polite"></p>
+      <button id="siguiente" class="boton oculto">SIGUIENTE <span>→</span></button>
+    </section>
+
+    <section id="resultado" class="panel oculto">
+      <div class="icono">🏁</div>
+      <span class="etiqueta">RESULTADO FINAL</span>
+      <h2 id="saludo"></h2>
+      <div class="marcador"><strong id="puntaje">0/7</strong><span>RESPUESTAS CORRECTAS</span></div>
+      <h3 id="evaluacion"></h3>
+      <p id="detalle"></p>
+      <button id="reiniciar" class="boton">VOLVER A JUGAR <span>↻</span></button>
+    </section>
+
+    <footer>HECHO PARA PONER A PRUEBA TU MEMORIA.</footer>
   </main>
   <script src="script.js"></script>
 </body>
